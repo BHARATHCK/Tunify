@@ -1,0 +1,23 @@
+.recentDisplay{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 8px;
+    max-height: 280px;
+}
+
+
+.infoContainer{
+    padding: 8px;
+}
+
+.recentText{
+    margin-top: 14px;
+    margin-left: 20px;
+}
+
+.recentCard{
+    max-width: 180px;
+    margin: 5px;
+}
