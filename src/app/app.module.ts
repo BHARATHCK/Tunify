@@ -16,12 +16,49 @@ import {TextFieldModule} from '@angular/cdk/text-field';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MyplaylistsComponent } from './myplaylists/myplaylists.component';
+import { RecentComponent } from './recent/recent.component';
+import { HomeComponent } from './home/home.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+
+
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientJsonpModule} from '@angular/common/http';
+import { NgZorroAntdModule, NZ_ICONS } from 'ng-zorro-antd';
+import { IconDefinition } from '@ant-design/icons-angular';
+import * as AllIcons from '@ant-design/icons-angular/icons';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzStatisticModule } from 'ng-zorro-antd/statistic';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+
+import { NZ_I18N, en_US } from 'ng-zorro-antd';
+registerLocaleData(en);
+
+const antDesignIcons = AllIcons as {
+  [key: string]: IconDefinition;
+***REMOVED***
+
+const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key])
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    SidenavComponent,
+    MyplaylistsComponent,
+    RecentComponent,
+    HomeComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +72,21 @@ registerLocaleData(en);
     TextFieldModule,
     MatFormFieldModule,
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    NzAutocompleteModule,
+    NzIconModule,
+    NzInputModule,
+    NzButtonModule,
+    HttpClientJsonpModule, 
+    ReactiveFormsModule, 
+    NgZorroAntdModule, 
+    ScrollingModule, 
+    DragDropModule,
+    NzSelectModule,
+    NzStatisticModule,
+    NzToolTipModule
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
