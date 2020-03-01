@@ -1,0 +1,34 @@
+<div class="sideNav">
+    <div class="sideNavInteractables">
+    <div class="home">
+        <a class="navItem" (click)="routeTo('home')">
+            <!-- <img class="homeIcon" src="/assets/homeIcon.svg"> -->
+            <div class="homeNavItem">
+                <mat-icon>home</mat-icon>
+                <span id="label" class="style-scope gpm-quick-nav-item">
+                    <span class="interactablesLabel">Home</span>
+                </span>
+            </div>
+        </a>
+    </div>
+    <br><br>
+    <div class="My Library">
+        <a class="navItem" (click)="routeTo('myplaylist')">
+            <!-- <img src="/assets/libraryIcon.svg"> -->
+            <mat-icon>library_music</mat-icon>
+            <span id="label" class="style-scope gpm-quick-nav-item">
+                <span class="interactablesLabel">Library</span>
+            </span>
+        </a>
+    </div>
+    <br><br>
+    <div class="recent">
+        <a class="navItem" (click)="routeTo('recent')">
+            <!-- <img src="/assets/recentIcon.svg"> -->
+            <mat-icon>replay</mat-icon>
+            <span id="label" class="style-scope gpm-quick-nav-item">
+                <span class="interactablesLabel">Recent</span>
+            </span>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+.sideNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 72px;
+    height: calc(100% - 16px);
+    margin-top: 16px;
+    margin-left: 10px;
+    --gpm-quick-nav-item-size: 72px;
+    max-height: calc(100vh - 60px);
+}
+
+.sideNavInteractables{
+    display: block;
+    text-align: center;
+}
+
+.interactablesLabel{
+    display: block;
+    
+}
+
+.navItem{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.selected{
+    color: red;
+}
+
+a {     
+    display: inline-block;     
+    position: relative;    
+    z-index: 1;     
+    padding: 2em;     
+    margin: -2em; 
+ }
