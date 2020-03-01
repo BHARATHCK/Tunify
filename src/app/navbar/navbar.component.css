@@ -1,0 +1,23 @@
+.toolbar{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-height: 60px;
+    display: flex;
+    flex:1 1 auto;
+    justify-content: space-between;
+}
+
+.backhome{
+    margin-right: 50px;
+    margin-left: 15px;
+    padding: 14px;
+}
+
+.searchBox{
+    padding: 10px;
+}
+
+.greet{
+    float: right;
+    right: 20px;
+    padding: 14px;
+}
