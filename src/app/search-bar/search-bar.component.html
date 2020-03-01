@@ -1,0 +1,10 @@
+<div class="searchBox">
+    <input class="searchBox"
+        placeholder="Search for a Track or an Artist"
+        nz-input
+        [(ngModel)]="inputValue"
+        (ngModelChange)="onChange($event)"
+        [nzAutocomplete]="auto"
+    />
+    <nz-autocomplete class="searchBox" [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
+</div>
