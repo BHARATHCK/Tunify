@@ -40,6 +40,10 @@ import { NzStatisticModule } from 'ng-zorro-antd/statistic';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 import { NZ_I18N, en_US } from 'ng-zorro-antd';
+import { MobileHomeComponent } from './mobileViews/mobile-home/mobile-home.component';
+import { ArtistsComponent } from './mobileViews/artists/artists.component';
+import { TracksComponent } from './mobileViews/tracks/tracks.component';
+import { RecentlyPlayedComponent } from './mobileViews/recently-played/recently-played.component';
 registerLocaleData(en);
 
 const antDesignIcons = AllIcons as {
@@ -58,7 +62,11 @@ registerLocaleData(en);
     MyplaylistsComponent,
     RecentComponent,
     HomeComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    MobileHomeComponent,
+    ArtistsComponent,
+    TracksComponent,
+    RecentlyPlayedComponent
   ],
   imports: [
     BrowserModule,
