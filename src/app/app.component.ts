@@ -11,6 +11,16 @@ export class AppComponent{
 
   constructor() { }
 
-  ngOnInit() {  }
+  ngOnInit() { 
+    this.HandleResolutionChange();
+   }
+
+   HandleResolutionChange(){
+     if(window.innerWidth < 768){
+       console.log('is MOBILE');
+     } else {
+       console.log('is desktop');
+     }
+   }
 
 }
