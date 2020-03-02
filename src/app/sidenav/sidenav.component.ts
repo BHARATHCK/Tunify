@@ -25,6 +25,7 @@ export class SidenavComponent implements OnInit {
   }
 
   handleSideNavStyles(route){
+    console.log('check ',route);
     if(route == '/home'){
       let element = document.getElementsByTagName('mat-icon')[0];
       let element1 = document.getElementsByClassName('interactablesLabel')[0];
@@ -71,6 +72,22 @@ export class SidenavComponent implements OnInit {
       element3.classList.remove('selected');
       element4.classList.add('selected');
       element5.classList.add('selected');
+    } else if (route == ''){
+      let element = document.getElementsByTagName('mat-icon')[0];
+      let element1 = document.getElementsByClassName('interactablesLabel')[0];
+      let element2 = document.getElementsByTagName('mat-icon')[1];
+      let element3 = document.getElementsByClassName('interactablesLabel')[1];
+      let element4 = document.getElementsByTagName('mat-icon')[2];
+      let element5 = document.getElementsByClassName('interactablesLabel')[2];
+
+
+      element.classList.add('selected');
+      element1.classList.add('selected');
+
+      element2.classList.remove('selected');
+      element3.classList.remove('selected');
+      element4.classList.remove('selected');
+      element5.classList.remove('selected');
     }
   }
 }
