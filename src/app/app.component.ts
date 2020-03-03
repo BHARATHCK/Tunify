@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';  
+import { Component, HostListener } from '@angular/core';  
+import { ApplicationStateService} from './services/application-state/application-state.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Component } from '@angular/core';
 export class AppComponent{
   title = 'bharathck';
 
-  constructor() { }
+  constructor(private applicationStateService: ApplicationStateService) { }
 
   ngOnInit() { 
     this.HandleResolutionChange();
@@ -22,5 +23,17 @@ export class AppComponent{
        console.log('is desktop');
      }
    }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event){
+   if(event.target.innerWidth < 768){
+     // trigger mobile routes
+     let isMobile:Boolean = true;
+     this.applicationStateService.handleResolutionChange(isMobile);
+   } else {
+    let isMobile:Boolean = false;
+     this.applicationStateService.handleResolutionChange(isMobile);
+   }
+  }
 
 }
