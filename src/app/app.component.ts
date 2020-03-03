@@ -18,9 +18,9 @@ export class AppComponent{
 
    HandleResolutionChange(){
      if(window.innerWidth < 768){
-       console.log('is MOBILE');
+       this.applicationStateService.resChange.next(true);
      } else {
-       console.log('is desktop');
+      this.applicationStateService.resChange.next(false);
      }
    }
 
