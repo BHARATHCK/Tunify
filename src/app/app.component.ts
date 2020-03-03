@@ -26,6 +26,7 @@ export class AppComponent{
 
   @HostListener('window:resize', ['$event'])
   onResize(event){
+    this.applicationStateService.notifyWindowResize(event.target.innerWidth);
    if(event.target.innerWidth < 768){
      // trigger mobile routes
      let isMobile:Boolean = true;

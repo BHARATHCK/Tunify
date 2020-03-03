@@ -72,7 +72,6 @@ export class SidenavComponent implements OnInit {
       element4.classList.add('selected');
       element5.classList.add('selected');
     } else if (route == ''){
-      console.log('ROUTE HOME SVG FILLED', route);
       let element = document.getElementsByTagName('mat-icon')[0];
       let element1 = document.getElementsByClassName('interactablesLabel')[0];
       let element2 = document.getElementsByTagName('mat-icon')[1];
