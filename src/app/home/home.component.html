@@ -32,12 +32,12 @@
         </div> -->
         <nz-row [nzGutter]="16">
             <nz-col [nzSpan]="12">
-              <nz-statistic [nzValue]="1949101 | number" [nzTitle]="'Number of songs you have listened to'"></nz-statistic>
+              <nz-statistic [nzValue]="855 | number" [nzTitle]="'Number of songs you have listened to'"></nz-statistic>
             </nz-col>
             <nz-col [nzSpan]="12">
-              <nz-statistic [nzValue]="40.75" nz-tooltip [nzTooltipTitle]="titleTemplate" [nzTitle]="'Approx Listening time [Hrs]'"></nz-statistic>
+              <nz-statistic [nzValue]="40.75" nz-tooltip [nzTooltipTitle]="titleTemplate" nzTooltipPlacement="topLeft" [nzTitle]="'Approx Listening time [Hrs]'"></nz-statistic>
               <ng-template #titleTemplate>
-                <i nz-icon nzType="bulb" style="margin-right: 8px"></i> <span>Hey! Music heals right!</span>
+                <i nz-icon nzType="bulb"></i> <span>    Hey! Music heals right!</span>
               </ng-template>
             </nz-col>
           </nz-row>
