@@ -7,7 +7,7 @@ import { Observable , of , BehaviorSubject} from 'rxjs';
 export class ApplicationStateService {
 
   public resChange: BehaviorSubject<any> = new BehaviorSubject(false);
-  public resChangeNotifier: BehaviorSubject<any> = new BehaviorSubject('');
+  public resChangeNotifier: BehaviorSubject<any> = new BehaviorSubject(window.innerWidth);
 
   constructor() { 
 
