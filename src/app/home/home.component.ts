@@ -16,6 +16,24 @@ export class HomeComponent implements OnInit {
    this.handleWindowResize();
   }
 
+  handleResolutionScreen(){
+    let res = window.innerWidth;
+    if(res){
+      if(res < 1428){
+        this.recentArray.pop();
+      }
+      if(res < 1238){
+        this.recentArray.pop();
+      }
+      if(res < 1048){
+        this.recentArray.pop();
+      }
+      if(res < 858){
+        this.recentArray.pop();
+      }
+    }
+  }
+
   handleWindowResize(){
     this.applicationStateService.resChangeNotifier.subscribe(
       res => {
