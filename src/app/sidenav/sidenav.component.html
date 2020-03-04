@@ -1,4 +1,5 @@
-<div class="sideNav">
+<div *ngIf="showSideNav">
+<div class="sideNav" >
     <div class="sideNavInteractables">
     <div class="home">
         <a class="navItem" (click)="routeTo('home')">
@@ -31,4 +32,5 @@
             </span>
         </a>
     </div>
+</div>
 </div>
