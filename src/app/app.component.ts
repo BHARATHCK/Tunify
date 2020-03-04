@@ -24,16 +24,27 @@ export class AppComponent{
      }
    }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event){
-    this.applicationStateService.notifyWindowResize(event.target.innerWidth);
-   if(event.target.innerWidth < 768){
+   onResizeF(){
+     console.log('TIMEOUT FUNCTION TRIGGERRED ME');
+    this.applicationStateService.notifyWindowResize(window.innerWidth);
+    if(window.innerWidth < 768){
      // trigger mobile routes
      let isMobile:Boolean = true;
      this.applicationStateService.handleResolutionChange(isMobile);
    } else {
     let isMobile:Boolean = false;
      this.applicationStateService.handleResolutionChange(isMobile);
+   }
+   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event){
+
+   let triggerResize;
+   triggerResize = setTimeout(this.onResize, 400);
+   window.onresize = function(){
+     clearTimeout(triggerResize);
+     triggerResize = setTimeout(this.onResize, 400);
    }
   }
 
