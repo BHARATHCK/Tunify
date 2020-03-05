@@ -31,70 +31,106 @@ export class SidenavComponent implements OnInit {
     this.router.navigate([`${route}`]);
   }
 
+  highlight(event){
+    console.log(event);
+    event.srcElement.classList.add('selected');
+  }
+
   handleSideNavStyles(route){
     if(this.showSideNav){
       if(route == '/home'){
-        let element = document.getElementsByTagName('mat-icon')[0];
-        let element1 = document.getElementsByClassName('interactablesLabel')[0];
-        let element2 = document.getElementsByTagName('mat-icon')[1];
-        let element3 = document.getElementsByClassName('interactablesLabel')[1];
-        let element4 = document.getElementsByTagName('mat-icon')[2];
-        let element5 = document.getElementsByClassName('interactablesLabel')[2];
-  
-        element.classList.add('selected');
-        element1.classList.add('selected');
-  
-        element2.classList.remove('selected');
-        element3.classList.remove('selected');
-        element4.classList.remove('selected');
-        element5.classList.remove('selected');
+
+        let testElement = document.getElementsByClassName('navItemHome');
+        let testElement1 = document.getElementsByClassName('navItemLibrary');
+        let testElement2 = document.getElementsByClassName('navItemRecent');
+
+        for(let i=0 ; i<testElement.length ; i++){
+          testElement[i].classList.add('selected');
+        }
+
+        for(let i=0 ; i<testElement1.length ; i++){
+          testElement[i].classList.remove('selected');
+        }
+
+        for(let i=0 ; i<testElement2.length ; i++){
+          testElement[i].classList.remove('selected');
+        }
+
+
   
       } else if(route == '/myplaylist'){
-        let element = document.getElementsByTagName('mat-icon')[0];
-        let element1 = document.getElementsByClassName('interactablesLabel')[0];
-        let element2 = document.getElementsByTagName('mat-icon')[1];
-        let element3 = document.getElementsByClassName('interactablesLabel')[1];
-        let element4 = document.getElementsByTagName('mat-icon')[2];
-        let element5 = document.getElementsByClassName('interactablesLabel')[2];
-  
-        element.classList.remove('selected');
-        element1.classList.remove('selected');
-  
-        element2.classList.add('selected');
-        element3.classList.add('selected');
-        element4.classList.remove('selected');
-        element5.classList.remove('selected');
+
+        let testElement = document.getElementsByClassName('navItemLibrary');
+        let testElement1 = document.getElementsByClassName('navItemLibrary');
+        let testElement2 = document.getElementsByClassName('navItemRecent');
+
+        for(let i=0 ; i<testElement.length ; i++){
+          testElement[i].classList.remove('selected');
+        }
+
+        for(let i=0 ; i<testElement1.length ; i++){
+          testElement[i].classList.add('selected');
+        }
+
+        for(let i=0 ; i<testElement2.length ; i++){
+          testElement[i].classList.remove('selected');
+        }
+
       } else if (route == '/recent'){
-        let element = document.getElementsByTagName('mat-icon')[0];
-        let element1 = document.getElementsByClassName('interactablesLabel')[0];
-        let element2 = document.getElementsByTagName('mat-icon')[1];
-        let element3 = document.getElementsByClassName('interactablesLabel')[1];
-        let element4 = document.getElementsByTagName('mat-icon')[2];
-        let element5 = document.getElementsByClassName('interactablesLabel')[2];
-  
-        element.classList.remove('selected');
-        element1.classList.remove('selected');
-  
-        element2.classList.remove('selected');
-        element3.classList.remove('selected');
-        element4.classList.add('selected');
-        element5.classList.add('selected');
+
+        let testElement = document.getElementsByClassName('navItemRecent');
+        let testElement1 = document.getElementsByClassName('navItemLibrary');
+        let testElement2 = document.getElementsByClassName('navItemRecent');
+
+        for(let i=0 ; i<testElement.length ; i++){
+          testElement[i].classList.remove('selected');
+        }
+
+        for(let i=0 ; i<testElement1.length ; i++){
+          testElement[i].classList.remove('selected');
+        }
+
+        for(let i=0 ; i<testElement2.length ; i++){
+          testElement[i].classList.add('selected');
+        }
+
       } else if (route == ''){
-        let element = document.getElementsByTagName('mat-icon')[0];
-        let element1 = document.getElementsByClassName('interactablesLabel')[0];
-        let element2 = document.getElementsByTagName('mat-icon')[1];
-        let element3 = document.getElementsByClassName('interactablesLabel')[1];
-        let element4 = document.getElementsByTagName('mat-icon')[2];
-        let element5 = document.getElementsByClassName('interactablesLabel')[2];
+        // let element = document.getElementsByTagName('mat-icon')[0];
+        // let element1 = document.getElementsByClassName('interactablesLabel')[0];
+        // let element2 = document.getElementsByTagName('mat-icon')[1];
+        // let element3 = document.getElementsByClassName('interactablesLabel')[1];
+        // let element4 = document.getElementsByTagName('mat-icon')[2];
+        // let element5 = document.getElementsByClassName('interactablesLabel')[2];
   
   
-        element.classList.add('selected');
-        element1.classList.add('selected');
+        // element.classList.add('selected');
+        // element1.classList.add('selected');
   
-        element2.classList.remove('selected');
-        element3.classList.remove('selected');
-        element4.classList.remove('selected');
-        element5.classList.remove('selected');
+        // element2.classList.remove('selected');
+        // element3.classList.remove('selected');
+        // element4.classList.remove('selected');
+        // element5.classList.remove('selected');
+
+
+        let testElement = document.getElementsByClassName('navItemHome');
+        let testElement1 = document.getElementsByClassName('navItemLibrary');
+        let testElement2 = document.getElementsByClassName('navItemRecent');
+
+        for(let i=0 ; i<testElement.length ; i++){
+          testElement[i].classList.add('selected');
+        }
+
+        for(let i=0 ; i<testElement1.length ; i++){
+          testElement[i].classList.remove('selected');
+        }
+
+        for(let i=0 ; i<testElement2.length ; i++){
+          testElement[i].classList.remove('selected');
+        }
+
+        for(let i=0 ; i<testElement.length ; i++){
+          testElement[i].classList.add('selected');
+        }
       }
     }
   }
