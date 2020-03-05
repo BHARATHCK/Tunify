@@ -2,7 +2,7 @@
 <div class="sideNav" >
     <div class="sideNavInteractables">
     <div class="home">
-        <a class="navItem" (click)="routeTo('home')">
+        <a class="navItemHome" (click)="routeTo('home'); highlight($event);">
             <!-- <img class="homeIcon" src="/assets/homeIcon.svg"> -->
             <div class="homeNavItem">
                 <mat-icon>home</mat-icon>
@@ -14,7 +14,7 @@
     </div>
     <br><br>
     <div class="My Library">
-        <a class="navItem" (click)="routeTo('myplaylist')">
+        <a class="navItemLibrary" (click)="routeTo('myplaylist'); highlight($event);">
             <!-- <img src="/assets/libraryIcon.svg"> -->
             <mat-icon>library_music</mat-icon>
             <span id="label" class="style-scope gpm-quick-nav-item">
@@ -24,7 +24,7 @@
     </div>
     <br><br>
     <div class="recent">
-        <a class="navItem" (click)="routeTo('recent')">
+        <a class="navItemRecent" (click)="routeTo('recent'); highlight($event);">
             <!-- <img src="/assets/recentIcon.svg"> -->
             <mat-icon>replay</mat-icon>
             <span id="label" class="style-scope gpm-quick-nav-item">
