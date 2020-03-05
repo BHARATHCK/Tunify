@@ -2,33 +2,33 @@
 <div class="sideNav" >
     <div class="sideNavInteractables">
     <div class="home">
-        <a class="navItemHome" (click)="routeTo('home'); highlight($event);">
+        <a class="navItemHome" (click)="routeTo('home')">
             <!-- <img class="homeIcon" src="/assets/homeIcon.svg"> -->
             <div class="homeNavItem">
-                <mat-icon>home</mat-icon>
+                <mat-icon class="colorHome">home</mat-icon>
                 <span id="label" class="style-scope gpm-quick-nav-item">
-                    <span class="interactablesLabel">Home</span>
+                    <span class="colorHome">Home</span>
                 </span>
             </div>
         </a>
     </div>
     <br><br>
     <div class="My Library">
-        <a class="navItemLibrary" (click)="routeTo('myplaylist'); highlight($event);">
+        <a class="navItemLibrary" (click)="routeTo('myplaylist')">
             <!-- <img src="/assets/libraryIcon.svg"> -->
-            <mat-icon>library_music</mat-icon>
+            <mat-icon class="colorPlaylist">library_music</mat-icon>
             <span id="label" class="style-scope gpm-quick-nav-item">
-                <span class="interactablesLabel">Library</span>
+                <span class="colorPlaylist">Library</span>
             </span>
         </a>
     </div>
     <br><br>
     <div class="recent">
-        <a class="navItemRecent" (click)="routeTo('recent'); highlight($event);">
+        <a class="navItemRecent" (click)="routeTo('recent')">
             <!-- <img src="/assets/recentIcon.svg"> -->
-            <mat-icon>replay</mat-icon>
+            <mat-icon class="colorRecent">replay</mat-icon>
             <span id="label" class="style-scope gpm-quick-nav-item">
-                <span class="interactablesLabel">Recent</span>
+                <span class="colorRecent">Recent</span>
             </span>
         </a>
     </div>
