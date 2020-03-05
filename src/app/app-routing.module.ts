@@ -44,14 +44,11 @@ export class AppRoutingModule {
           
           this.router.navigate([this.router.url]);
           console.log('mobile');
-          //window.location.reload();
-
         } else {
           this.router.resetConfig(desktop_routes);
 
           this.router.navigate([this.router.url]);
           console.log('desktop');
-          //window.location.reload();
         }
       }
     )
