@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { ApplicationStateService } from './services/application-state/application-state.service';
+import { SpotifyService } from './services/spotify-service/spotify.service';
 
 
 @Component({
@@ -10,10 +11,11 @@ import { ApplicationStateService } from './services/application-state/applicatio
 export class AppComponent {
   title = 'bharathck';
 
-  constructor(private applicationStateService: ApplicationStateService) { }
+  constructor(private applicationStateService: ApplicationStateService , private spotifyService: SpotifyService) { }
 
   ngOnInit() {
     this.HandleResolutionChange();
+    this.spotifyService.Login();
   }
 
   HandleResolutionChange() {
