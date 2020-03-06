@@ -3,27 +3,6 @@
 // The list of file replacements can be found in `angular.json`.
 
 ***REMOVED***
-  ***REMOVED***
-  /*
-  ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-  }
-  */
-  ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-  }
 ***REMOVED***
 
 /*
