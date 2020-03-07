@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
@@ -44,6 +44,9 @@ import { MobileHomeComponent } from './mobileViews/mobile-home/mobile-home.compo
 import { ArtistsComponent } from './mobileViews/artists/artists.component';
 import { TracksComponent } from './mobileViews/tracks/tracks.component';
 import { RecentlyPlayedComponent } from './mobileViews/recently-played/recently-played.component';
+import { ServiceInterceptor } from './services/interceptors/service-interceptor';
+import { CacheRegistrationService } from './services/cacheservice/cache-registration.service';
+
 registerLocaleData(en);
 
 const antDesignIcons = AllIcons as {
@@ -94,7 +97,11 @@ registerLocaleData(en);
     NzStatisticModule,
     NzToolTipModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons }],
+  providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons } , {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ServiceInterceptor,
+    multi: true
+  }, CacheRegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
