@@ -15,7 +15,6 @@ export class AppComponent {
 
   ngOnInit() {
     this.HandleResolutionChange();
-    this.spotifyService.Login();
   }
 
   HandleResolutionChange() {
