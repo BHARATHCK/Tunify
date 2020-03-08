@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRecentlyPlayedTracks();
-    this.handleWindowResize();
   }
 
   handleWindowResize() {
@@ -47,8 +46,14 @@ export class HomeComponent implements OnInit {
     this.spotifyService.getRecentTracksForHome().subscribe(
       res => {
         this.recentArray = res.items;
+        console.log(res.items);
+        this.handleWindowResize();
       },
       error => {
+        console.log('error : ', error);
+        if (error.error.error.message == 'Invalid access token' || error.error.error.message == 'The access token expired') {
+          this.spotifyService.refreshLogin();
+        }
       }
     )
   }
