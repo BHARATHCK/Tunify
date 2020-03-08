@@ -1,0 +1,25 @@
+.recentPalette{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.paletteItem{
+    flex: 1 0 18%; /* explanation below */
+    margin: 5px;
+}
+
+.wrapper{
+    padding: 10px;
+}
+
+span{
+    display: block;
+    line-height: 1.5em;
+    font-weight: 800;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
