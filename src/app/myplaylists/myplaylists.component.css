@@ -1,0 +1,73 @@
+.recentPalette{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.paletteItem{
+    flex: 1 0 18%; /* explanation below */
+    margin: 5px;
+}
+
+.wrapper{
+    padding: 10px;
+}
+
+span{
+    display: block;
+    line-height: 1.5em;
+    font-weight: 800;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.viewSwitch{
+    padding: 15px;
+}
+
+.track__cover {
+    width: 60px;
+    min-width: 60px;
+    height: 80px;
+    border-radius: 5px;
+    margin-right: 1em;
+    background: #fafafa;
+    float: left;
+    -ms-flex: 40px 0;
+    flex: 40px 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    -webkit-transition: opacity .1s linear;
+    -o-transition: opacity .1s linear;
+    transition: opacity .1s linear;
+}
+
+.artist__info {
+ display: flex;
+ flex-direction: row;
+}
+
+.order__index{
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+}
+.artist__summary{
+    text-align: left;
+    align-items: center;
+    justify-items: center;
+}
+.artist__genres {
+    color: #aba5c3;
+    text-align: left;
+    font-size: .7em;
+    text-transform: capitalize;
+}
+
+.artist__name {
+    font-weight: 500;
+}

@@ -5,16 +5,12 @@
         <div class="recentCards" *ngFor="let recentItem of recentArray">
             <nz-card class="recentCard" [nzCover]="coverTemplate">
                 <nz-card-meta
-                  nzTitle="Card title"
-                  nzDescription="This is the description"
-                  [nzAvatar]="avatarTemplate"
+                  nzTitle="{{ recentItem.track.name }}"
+                  nzDescription="Popularity: {{ recentItem.track.popularity }}"
                 ></nz-card-meta>
               </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
               <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+                <img alt="example" src="{{ recentItem.track.album.images[0].url }}" />
               </ng-template>
         </div>
         
@@ -23,13 +19,6 @@
     <br><br><br>
 
     <div class="infoContainer">
-        <!-- <div class="obsessedTrack">
-            NO REGRETS
-        </div>
-        <div class="topInfo">
-            TRACK : 
-            ARTIST :
-        </div> -->
         <nz-row [nzGutter]="16">
             <nz-col [nzSpan]="12">
               <nz-statistic [nzValue]="855 | number" [nzTitle]="'Number of songs you have listened to'"></nz-statistic>
