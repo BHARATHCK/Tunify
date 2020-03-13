@@ -1,13 +1,28 @@
 <div class="toolbar">
-    <div class="backhome">
-        SPOTIFY
+    <div class="justifyToolbar">
+        <div class="backhome">
+            SPOTIFY
+        </div>
+
+        <div class="searchBox">
+            <app-search-bar></app-search-bar>
+        </div>
+
+        <div class="greet" (click)="login()">
+            Hi! 👋 BHARATH
+        </div>
     </div>
 
-    <div class="searchBox">
-        <app-search-bar></app-search-bar>
-    </div>
+    <br>
 
-    <div class="greet" (click)="login()">
-        Hi! 👋 BHARATH
+    <div class="homeNavigator" *ngIf="showPlaylistNavigator">
+        <ul nz-menu nzMode="horizontal">
+            <li class="selectedItem" nz-menu-item nzSelected (click)="userSelection('artist')">
+                TOP ARTISTS
+            </li>
+            <li nz-menu-item (click)="userSelection('track')">
+                TOP TRACKS
+            </li>
+        </ul>
     </div>
 </div>
