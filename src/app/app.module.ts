@@ -40,6 +40,7 @@ import { NzStatisticModule } from 'ng-zorro-antd/statistic';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 import { NZ_I18N, en_US } from 'ng-zorro-antd';
+<<<<<<< HEAD
 import { MobileHomeComponent } from './mobileViews/mobile-home/mobile-home.component';
 import { ArtistsComponent } from './mobileViews/artists/artists.component';
 import { TracksComponent } from './mobileViews/tracks/tracks.component';
@@ -47,6 +48,8 @@ import { RecentlyPlayedComponent } from './mobileViews/recently-played/recently-
 import { ServiceInterceptor } from './services/interceptors/service-interceptor';
 import { CacheRegistrationService } from './services/cacheservice/cache-registration.service';
 
+=======
+>>>>>>> 8fbd555... 'add_ngZorro'
 registerLocaleData(en);
 
 const antDesignIcons = AllIcons as {
@@ -65,11 +68,15 @@ registerLocaleData(en);
     MyplaylistsComponent,
     RecentComponent,
     HomeComponent,
+<<<<<<< HEAD
     SearchBarComponent,
     MobileHomeComponent,
     ArtistsComponent,
     TracksComponent,
     RecentlyPlayedComponent
+=======
+    SearchBarComponent
+>>>>>>> 8fbd555... 'add_ngZorro'
   ],
   imports: [
     BrowserModule,
@@ -97,11 +104,15 @@ registerLocaleData(en);
     NzStatisticModule,
     NzToolTipModule
   ],
+<<<<<<< HEAD
   providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons } , {
     provide: HTTP_INTERCEPTORS,
     useClass: ServiceInterceptor,
     multi: true
   }, CacheRegistrationService],
+=======
+  providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons }],
+>>>>>>> 8fbd555... 'add_ngZorro'
   bootstrap: [AppComponent]
 })
 export class AppModule { }
