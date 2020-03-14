@@ -6,5 +6,5 @@
         (ngModelChange)="onChange($event)"
         [nzAutocomplete]="auto"
     />
-    <nz-autocomplete class="searchBox" [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
+    <nz-autocomplete class="searchBox" (selectionChange)="onSelect($event)" [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
 </div>
