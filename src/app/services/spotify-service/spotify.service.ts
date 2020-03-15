@@ -4,7 +4,7 @@ import { environment } from '../../../environments/environment';
 import * as qs from 'qs';
 import * as uuid from 'uuid';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
 import { CacheRegistrationService } from '../cacheservice/cache-registration.service';
 
@@ -13,10 +13,12 @@ import { CacheRegistrationService } from '../cacheservice/cache-registration.ser
 })
 export class SpotifyService {
 
+  userSelection$: BehaviorSubject<any> = new BehaviorSubject('artist');
+
   constructor(private http: HttpClient, private route: Router, private cacheRegistrationService: CacheRegistrationService) { }
 
-  Login(showDialog = true /* FOR NOW */){
-    const state = uuid(); 
+  Login(showDialog = true /* FOR NOW */) {
+    const state = uuid();
     localStorage.setItem('xsrf-token', state)
     const params = {
       response_type: 'token',
@@ -31,17 +33,51 @@ export class SpotifyService {
     window.location.href = redirectUrl;
   }
 
-  refreshLogin(){
+  refreshLogin() {
     this.Login(false);
   }
 
-  getToken(): String{
+  getToken(): String {
     return localStorage.getItem('access_token');
   }
 
   getRecentTracksForHome(): Observable<any> {
     const baseURL = 'https://api.spotify.com/v1/me/player/recently-played?limit=7';
-    this.cacheRegistrationService.addToCache(baseURL);
-    return this.http.get<any>(baseURL).pipe(shareReplay(1));
+    //this.cacheRegistrationService.addToCache(baseURL);
+    return this.http.get<any>(baseURL);
   }
+
+  getRecentTracks(): Observable<any> {
+    const baseURL = 'https://api.spotify.com/v1/me/player/recently-played?limit=50';
+    return this.http.get<any>(baseURL);
+  }
+
+  // GET THE TOP ARTISTS OF THE USER
+  getTopArtists(timeRange, offset, limit): Observable<any> {
+    const baseUrl = `https://api.spotify.com/v1/me/top/artists?time_range=${timeRange}&limit=${limit}&offset=${offset}`;
+    return this.http.get<any>(baseUrl);
+  }
+
+  // GET THE TOP TRACKS PLAYED BY USER
+  getTopTracks(timeRange, offset, limit){
+    const baseUrl = `https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&limit=${limit}&offset=${offset}`
+    return this.http.get<any>(baseUrl);
+  }
+
+  userSelectionForPlaylistNav(selection){
+    console.log('EMITTING NEW VALUE : ', selection);
+    this.userSelection$.next(selection);
+  }
+
+  search(inputValue){
+    const baseUrl = `https://api.spotify.com/v1/search?q=${inputValue}&type=track`
+    return this.http.get<any>(baseUrl);
+  }
+
+  createRecommendedPlaylist(trackID) {
+    const baseURL = `https://api.magicplaylist.co/mp/create/${trackID}?country=US&length=1`;
+    const proxyURL = `https://cors-anywhere.herokuapp.com/`
+    return this.http.get<any>(proxyURL + baseURL);
+  }
+
 }
