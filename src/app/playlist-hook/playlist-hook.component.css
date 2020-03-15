@@ -1,0 +1,54 @@
+.track__cover {
+    width: 60px;
+    min-width: 60px;
+    height: 80px;
+    border-radius: 5px;
+    margin-right: 1em;
+    background: #fafafa;
+    float: left;
+    -ms-flex: 40px 0;
+    flex: 40px 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    -webkit-transition: opacity .1s linear;
+    -o-transition: opacity .1s linear;
+    transition: opacity .1s linear;
+}
+
+.artist__info {
+    width: 280px;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+}
+
+.order__index{
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+}
+.artist__summary{
+    text-align: left;
+    align-items: center;
+    justify-items: center;
+    width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.artist__genres {
+    color: #aba5c3;
+    text-align: left;
+    font-size: .7em;
+    text-transform: capitalize;
+    display: block;
+}
+
+.artist__name {
+    font-weight: 500;
+}
+
+.container{
+    left: 30%;
+    position: relative;
+}
