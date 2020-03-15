@@ -1,15 +1,15 @@
 <div class="toolbar">
     <div class="justifyToolbar">
         <div class="backhome">
-            SPOTIFY
+            <span class="tunifyText">TUNIFY</span> for <span class="spotifyText">SPOTIFY</span>
         </div>
 
         <div class="searchBox">
             <app-search-bar></app-search-bar>
         </div>
 
-        <div class="greet" (click)="login()">
-            Hi! 👋 BHARATH
+        <div class="greet" (click)="login()" *ngIf="username">
+            Hi! 👋 {{ username }}
         </div>
     </div>
 

@@ -28,3 +28,15 @@
 .homeNavigator{
     margin-left: 100px;
 }
+
+.tunifyText{
+    font-family: 'Roboto',arial,'Noto Sans Japanese',sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: red;
+}
+
+.spotifyText{
+    font-weight: 800;
+    color: green;
+}
