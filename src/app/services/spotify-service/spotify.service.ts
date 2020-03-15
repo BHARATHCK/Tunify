@@ -80,4 +80,13 @@ export class SpotifyService {
     return this.http.get<any>(proxyURL + baseURL);
   }
 
+
+    // GET USER PROFILE
+    public getUserProfile(): Observable<any> {
+      const baseUrl = "https://api.spotify.com/v1/me";
+      return this.http.get<any>(baseUrl);
+    }
+
+
+
 }
