@@ -46,6 +46,9 @@ import { TracksComponent } from './mobileViews/tracks/tracks.component';
 import { RecentlyPlayedComponent } from './mobileViews/recently-played/recently-played.component';
 import { ServiceInterceptor } from './services/interceptors/service-interceptor';
 import { CacheRegistrationService } from './services/cacheservice/cache-registration.service';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { PlaylistHookComponent } from './playlist-hook/playlist-hook.component';
+import { BottomInteractableComponent } from './bottom-interactable/bottom-interactable.component';
 
 registerLocaleData(en);
 
@@ -69,7 +72,9 @@ registerLocaleData(en);
     MobileHomeComponent,
     ArtistsComponent,
     TracksComponent,
-    RecentlyPlayedComponent
+    RecentlyPlayedComponent,
+    PlaylistHookComponent,
+    BottomInteractableComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +100,8 @@ registerLocaleData(en);
     DragDropModule,
     NzSelectModule,
     NzStatisticModule,
-    NzToolTipModule
+    NzToolTipModule,
+    NzMenuModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons } , {
     provide: HTTP_INTERCEPTORS,

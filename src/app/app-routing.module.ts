@@ -9,12 +9,14 @@ import { RecentlyPlayedComponent } from './mobileViews/recently-played/recently-
 import { ApplicationStateService } from './services/application-state/application-state.service';
 import { Location } from '@angular/common';
 import { SpotifyService } from './services/spotify-service/spotify.service';
+import { PlaylistHookComponent } from './playlist-hook/playlist-hook.component';
 
 const desktop_routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'recent', component: RecentComponent },
-  { path: 'myplaylist', component: MyplaylistsComponent }
+  { path: 'myplaylist', component: MyplaylistsComponent },
+  { path: 'customPlaylist', component: PlaylistHookComponent}
 ];
 
 const mobile_routes: Routes = [
