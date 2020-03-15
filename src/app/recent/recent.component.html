@@ -1,2 +1,9 @@
-<p>recent works!</p>
-<app-search-bar></app-search-bar>
+<br>
+<div class="wrapper">
+    <div class="recentPalette">
+        <div class="paletteItem" *ngFor="let recentItem of recentArray">
+            <img style="width:200px; height: 200px;" src="{{ recentItem.track.album.images[0].url }}" />
+            <span> {{ recentItem.track.name }} </span>
+        </div>
+    </div>
+</div>
