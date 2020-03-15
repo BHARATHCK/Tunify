@@ -11,11 +11,13 @@ import { BlockScrollStrategy } from '@angular/cdk/overlay';
 export class NavbarComponent implements OnInit {
 
   showPlaylistNavigator: boolean = false;
+  username;
 
   constructor(private spotifyService: SpotifyService, private router: Router) { }
 
   ngOnInit(): void {
     this.subscribeToRouter();
+    this.getUserProfile();
   }
 
   subscribeToRouter(){
@@ -37,6 +39,17 @@ export class NavbarComponent implements OnInit {
   userSelection(selection){
     console.log('CLICKED : ', selection);
     this.spotifyService.userSelectionForPlaylistNav(selection);
+  }
+
+  getUserProfile(){
+    this.spotifyService.getUserProfile().subscribe(
+      res=> {
+        this.username = res.display_name;
+
+      }, error => {
+        console.log('ERROR : ',error);
+      }
+    )
   }
 
 }

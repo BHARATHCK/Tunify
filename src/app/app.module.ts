@@ -54,7 +54,7 @@ registerLocaleData(en);
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
-***REMOVED***
+};
 
 const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key])
 
