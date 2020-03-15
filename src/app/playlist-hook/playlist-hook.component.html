@@ -1,0 +1,14 @@
+<br>
+<div class="container">
+    <div *ngFor="let trackItem of tracks; let i = index">
+        <div class="artist__info">
+            <span class="order__index">{{ i+1 }}</span>
+            <span class="track__cover" [style.background-image]="'url(' + trackItem.album.images[0].url + ')'"></span>
+            <span class="artist__summary">
+                <span class="artist__name">{{ trackItem.name }}</span>
+                <span class="artist__genres">POPULARITY: {{ trackItem.popularity }}</span>
+            </span>
+        </div>
+        <br>
+    </div>
+</div>
