@@ -31,6 +31,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   onSelect(value: any){
+    
     this.createPlaylist(this.myMap.get(value.nzValue));
   }
 
@@ -48,11 +49,24 @@ export class SearchBarComponent implements OnInit {
   search(value) {
     this.spotifyService.search(value).subscribe(
       res => {
+        console.log(" OBJECT TRACKS : ", res);
         let items = res.tracks.items;
         let tracks = [];
         items.forEach(element => {
-          tracks.push(element.name);
-          this.myMap.set(element.name, element.id);
+          let trackString: string = element.name;
+     
+          for(let [index,artistname] of element.artists.entries()){
+            if(index == 0){
+              trackString = trackString.concat(' by ');
+            }
+            else{
+              trackString = trackString.concat(', ');
+            }
+            trackString = trackString.concat(artistname.name);
+          }
+
+          tracks.push(trackString);
+          this.myMap.set(trackString, element.id);
         });
         this.filteredOptions = tracks;
       }, error => {

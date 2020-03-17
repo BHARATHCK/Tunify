@@ -4,10 +4,10 @@
 
 export const environment = {
     production: true,
-    clientId: '***REMOVED***',
+    clientId: 'ec540590bb6449a181edcbd27987aef6',
     redirectUrl: 'http://localhost:4200',
-    scopes: '***REMOVED***',
-    appRedirectUrl: '***REMOVED***'
+    scopes: 'user-top-read%20user-read-private%20playlist-read-private%20user-library-modify%20playlist-modify-public%20user-follow-read%20user-read-playback-state%20user-modify-playback-state%20user-read-recently-played%20user-read-currently-playing%20user-follow-modify%20playlist-modify-private%20playlist-read-collaborative%20user-library-read%20user-read-email',
+    appRedirectUrl: 'https://accounts.spotify.com/authorize?'
 };
 
 /*
