@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { SpotifyService } from '../services/spotify-service/spotify.service';
 
 @Component({
   selector: 'app-bottom-interactable',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class BottomInteractableComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private spotifyService: SpotifyService) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +26,14 @@ export class BottomInteractableComponent implements OnInit {
          element.classList.remove('bottomNav');
       }
     }
+  }
+
+  createPlaylist(){
+    this.spotifyService.playlistState.subscribe(
+      res => {
+        console.log("APP STATE : ", res);
+      }
+    )
   }
 
 }
