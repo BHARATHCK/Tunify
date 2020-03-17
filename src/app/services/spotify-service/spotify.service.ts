@@ -14,6 +14,7 @@ import { CacheRegistrationService } from '../cacheservice/cache-registration.ser
 export class SpotifyService {
 
   userSelection$: BehaviorSubject<any> = new BehaviorSubject('artist');
+  playlistState: BehaviorSubject<any>;
 
   constructor(private http: HttpClient, private route: Router, private cacheRegistrationService: CacheRegistrationService) { }
 
@@ -87,6 +88,8 @@ export class SpotifyService {
       return this.http.get<any>(baseUrl);
     }
 
-
+    updatePlaylistState(state){
+      this.playlistState = new BehaviorSubject(state);
+    }
 
 }
