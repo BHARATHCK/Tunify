@@ -31,11 +31,21 @@ export class ServiceInterceptor implements HttpInterceptor {
         // 1. It's not a GET request
         // 2. If URI is not supposed to be cached
 
-        httpRequest = httpRequest.clone({
-            headers: new HttpHeaders({
-                'Authorization': `Bearer ${this.spotifyService.getToken()}`
+        let requestedUrlHostname = new URL(httpRequest.url).hostname;
+        if (requestedUrlHostname == 'cors-anywhere.herokuapp.com') {
+            httpRequest = httpRequest.clone({
+                headers: new HttpHeaders({
+                    'Authorization': `Bearer ${this.spotifyService.getToken()}`,
+                    'Access-Control-Allow-Headers': 'x-requested-with, x-requested-by'
+                })
             })
-        });
+        } else {
+            httpRequest = httpRequest.clone({
+                headers: new HttpHeaders({
+                    'Authorization': `Bearer ${this.spotifyService.getToken()}`,
+                })
+            });
+        }
 
         if (httpRequest.method !== "GET" ||
             !this.cacheRegistrationService.addedToCache(httpRequest.url)) {
