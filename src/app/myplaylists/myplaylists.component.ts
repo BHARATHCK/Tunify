@@ -24,6 +24,7 @@ export class MyplaylistsComponent implements OnInit {
         this.topArtistsArray = res.items;
         console.log(this.topArtistsArray);
         this.topTracksArray = [];
+        this.spotifyService.updatePlaylistState(res.items);
       },
       error => {
         if (error.error.error.message == 'Invalid access token' || error.error.error.message == 'The access token expired') {
@@ -38,6 +39,7 @@ export class MyplaylistsComponent implements OnInit {
       res => {
         this.topTracksArray = res.items;
         this.topArtistsArray = [];
+        this.spotifyService.updatePlaylistState(res.items);
       }
     )
   }
@@ -53,15 +55,5 @@ export class MyplaylistsComponent implements OnInit {
         }
       }
     )
-  }
-
-  switchFunction(){
-    if(this.switchValue){
-      // RANKED VIEW
-
-    }
-    if(!this.switchValue){
-      // NORMAL VIEW
-    }
   }
 }
