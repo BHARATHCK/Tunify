@@ -60,17 +60,17 @@ export class SpotifyService {
   }
 
   // GET THE TOP TRACKS PLAYED BY USER
-  getTopTracks(timeRange, offset, limit){
+  getTopTracks(timeRange, offset, limit) {
     const baseUrl = `https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&limit=${limit}&offset=${offset}`
     return this.http.get<any>(baseUrl);
   }
 
-  userSelectionForPlaylistNav(selection){
+  userSelectionForPlaylistNav(selection) {
     console.log('EMITTING NEW VALUE : ', selection);
     this.userSelection$.next(selection);
   }
 
-  search(inputValue){
+  search(inputValue) {
     const baseUrl = `https://api.spotify.com/v1/search?q=${inputValue}&type=track`
     return this.http.get<any>(baseUrl);
   }
@@ -81,15 +81,48 @@ export class SpotifyService {
     return this.http.get<any>(proxyURL + baseURL);
   }
 
+  getDate() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    let currdate = mm + '/' + dd + '/' + yyyy;
+    return currdate;
+  }
 
-    // GET USER PROFILE
-    public getUserProfile(): Observable<any> {
-      const baseUrl = "https://api.spotify.com/v1/me";
-      return this.http.get<any>(baseUrl);
-    }
 
-    updatePlaylistState(state){
-      this.playlistState = new BehaviorSubject(state);
-    }
+  // GET USER PROFILE
+  public getUserProfile(): Observable<any> {
+    const baseUrl = "https://api.spotify.com/v1/me";
+    return this.http.get<any>(baseUrl);
+  }
+
+  updatePlaylistState(state) {
+    this.playlistState = new BehaviorSubject(state);
+  }
+
+  createPlaylist(nameOfPlaylist) {
+    const baseURL = `https://api.spotify.com/v1/users/${sessionStorage.getItem('userId')}/playlists`;
+    let body = {
+      "name": `${nameOfPlaylist} ${this.getDate()}`,
+      "public": "false",
+      "collaborative": "false",
+      "description": "Curated tracks by your all-time favorite artists"
+    };
+    return this.http.post<any>(baseURL, body);
+  }
+
+  savePlaylist(tracksToBeSaved, playlistId) {
+    let uris = tracksToBeSaved;
+    console.log('REQUEST SENT ');
+    const baseURL = `https://api.spotify.com/v1/users/${sessionStorage.getItem('userId')}/playlists/${playlistId}/tracks`;
+    console.log(baseURL);
+    return this.http.post<any>(baseURL, uris);
+  }
+
+  getPlaylistImage(playListID) {
+    const baseURL = `https://api.spotify.com/v1/users/${sessionStorage.getItem('userId')}/playlists/${playListID}/images`;
+    return this.http.get<any>(baseURL);
+  }
 
 }
