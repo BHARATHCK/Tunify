@@ -1,5 +1,25 @@
 <br>
+<br>
 <div class="container">
+    <div id="playlistInput">
+
+        <form nz-form [formGroup]="validateForm" class="login-form"
+          (ngSubmit)="createPlaylist()" class="formInput">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Please input your playlist name!">
+              <nz-input-group nzPrefixIcon="">
+                <input type="text" nz-input [(ngModel)]="playlistName" (ngModelChange)="playlistNameChange()" formControlName="playlistName"
+                  placeholder="Enter playlist name" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+
+    </div>
+    <div id="inputButton">
+        <button nz-button nzType="primary" (click)="createPlaylist()">CREATE PLAYLIST</button>
+    </div>
+    <br><br>
     <div *ngFor="let trackItem of tracks; let i = index">
         <div class="artist__info">
             <span class="order__index">{{ i+1 }}</span>
