@@ -10,6 +10,7 @@ import { SpotifyService } from '../services/spotify-service/spotify.service';
 export class HomeComponent implements OnInit {
 
   recentArray = [];
+  recentMap;
 
   constructor(private applicationStateService: ApplicationStateService, private spotifyService: SpotifyService) { }
 
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
     this.applicationStateService.resChangeNotifier.subscribe(
       res => {
         if (res) {
-          if(res >= 1428){
+          if (res >= 1428) {
             this.recentArray.length = 7;
           }
           if (res < 1428) {
@@ -46,7 +47,11 @@ export class HomeComponent implements OnInit {
     this.spotifyService.getRecentTracksForHome().subscribe(
       res => {
         this.recentArray = res.items;
-        console.log(res.items);
+        let unique = this.removeDuplicates(this.recentArray, 'id')
+        console.log("UNIQUE ARRAY : ", unique);
+        let duplicates = unique.map(value => [value, this.recentArray.filter(val => val.track.id === value.track.id).length]);
+        this.recentArray = [... new Set(duplicates)];
+        console.log("RECENT ARRAY :: ", this.recentArray);
         this.handleWindowResize();
       },
       error => {
@@ -56,6 +61,33 @@ export class HomeComponent implements OnInit {
         }
       }
     )
+  }
+
+
+  removeDuplicates(originalArray, prop) {
+    var newArray = [];
+    var lookupObject = [];
+
+    for (let item of originalArray) {
+      lookupObject.push(item.track.id);
+    }
+    console.log("LOOKUP OBJECT BEFORE :: ", lookupObject);
+    lookupObject = lookupObject.filter((a, i, aa) => aa.indexOf(a) === i && aa.lastIndexOf(a) !== i);
+    console.log("LOOKUP OBJECT AFTER :: ", lookupObject);
+
+    originalArray.forEach(element => {
+      let flag = 0;
+      for (let value of lookupObject) {
+        if (element.track.id == value) {
+
+        }
+      }
+      if (flag == 0) {
+        newArray.push(element);
+      }
+    });
+
+    return newArray;
   }
 
 }

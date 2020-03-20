@@ -5,12 +5,12 @@
         <div class="recentCards" *ngFor="let recentItem of recentArray">
             <nz-card class="recentCard" [nzCover]="coverTemplate">
                 <nz-card-meta
-                  nzTitle="{{ recentItem.track.name }}"
-                  nzDescription="Popularity: {{ recentItem.track.popularity }}"
+                  nzTitle="{{ recentItem[0].track.name }}"
+                  nzDescription="Popularity: {{ recentItem[0].track.popularity }}"
                 ></nz-card-meta>
               </nz-card>
               <ng-template #coverTemplate>
-                <img alt="example" src="{{ recentItem.track.album.images[0].url }}" />
+                <img alt="example" src="{{ recentItem[0].track.album.images[0].url }}" />
               </ng-template>
         </div>
         
