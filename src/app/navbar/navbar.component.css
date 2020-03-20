@@ -40,3 +40,7 @@
     font-weight: 800;
     color: green;
 }
+
+li{
+    display: inline-block;
+}

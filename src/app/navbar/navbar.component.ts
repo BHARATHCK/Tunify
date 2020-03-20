@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../services/spotify-service/spotify.service';
 import { Router, RouterEvent, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { BlockScrollStrategy } from '@angular/cdk/overlay';
+import { ApplicationStateService } from '../services/application-state/application-state.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,8 +13,9 @@ export class NavbarComponent implements OnInit {
 
   showPlaylistNavigator: boolean = false;
   username;
+  switchValue: boolean = true;
 
-  constructor(private spotifyService: SpotifyService, private router: Router) { }
+  constructor(private spotifyService: SpotifyService, private router: Router, private appStateService: ApplicationStateService) { }
 
   ngOnInit(): void {
     this.subscribeToRouter();
@@ -45,11 +47,15 @@ export class NavbarComponent implements OnInit {
     this.spotifyService.getUserProfile().subscribe(
       res=> {
         this.username = res.display_name;
-
+        sessionStorage.setItem('userId',res.id);
       }, error => {
         console.log('ERROR : ',error);
       }
     )
+  }
+
+  viewTypeChange(){
+    this.appStateService.viewType.next(this.switchValue);
   }
 
 }

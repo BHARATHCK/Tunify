@@ -23,6 +23,12 @@
             <li nz-menu-item (click)="userSelection('track')">
                 TOP TRACKS
             </li>
+            <li>
+                <div class="viewSwitch">
+                    <nz-switch [(ngModel)]="switchValue" (ngModelChange)="viewTypeChange()" nzCheckedChildren="RANKED VIEW"
+                        nzUnCheckedChildren="NORMAL VIEW"></nz-switch>
+                </div>
+            </li>
         </ul>
     </div>
 </div>
