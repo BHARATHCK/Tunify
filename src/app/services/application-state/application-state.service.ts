@@ -8,6 +8,10 @@ export class ApplicationStateService {
 
   public resChange: BehaviorSubject<any> = new BehaviorSubject(false);
   public resChangeNotifier: BehaviorSubject<any> = new BehaviorSubject(window.innerWidth);
+  public viewType: BehaviorSubject<any> = new BehaviorSubject(true);
+  public playlistName: string = '';
+  public mostRecentPlaylistID: string = '';
+  public mostRecentPlaylistImage: string = '';
 
   constructor() { 
 
@@ -19,6 +23,10 @@ export class ApplicationStateService {
 
   notifyWindowResize(width){
     this.resChangeNotifier.next(width);
+  }
+
+  handleViewTypeChange(value){
+    this.viewType.next(value);
   }
 
 }

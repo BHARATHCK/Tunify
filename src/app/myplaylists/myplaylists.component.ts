@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../services/spotify-service/spotify.service';
+import { ApplicationStateService } from '../services/application-state/application-state.service';
 
 @Component({
   selector: 'app-myplaylists',
@@ -12,17 +13,17 @@ export class MyplaylistsComponent implements OnInit {
   topTracksArray = [];
   switchValue: boolean = true;
 
-  constructor(private spotifyService: SpotifyService) { }
+  constructor(private spotifyService: SpotifyService, private appStateService: ApplicationStateService) { }
 
   ngOnInit(): void {
     this.userSelection();
+    this.viewTypeChange();
   }
 
-  getTopArtists(){
-    this.spotifyService.getTopArtists('long_term',0,100).subscribe(
+  getTopArtists(term){
+    this.spotifyService.getTopArtists(term,0,100).subscribe(
       res => {
         this.topArtistsArray = res.items;
-        console.log(this.topArtistsArray);
         this.topTracksArray = [];
         this.spotifyService.updatePlaylistState(res.items);
       },
@@ -34,8 +35,8 @@ export class MyplaylistsComponent implements OnInit {
     )
   }
 
-  getTopTracks(){
-    this.spotifyService.getTopTracks('long_term',0,100).subscribe(
+  getTopTracks(term){
+    this.spotifyService.getTopTracks(term,0,100).subscribe(
       res => {
         this.topTracksArray = res.items;
         this.topArtistsArray = [];
@@ -45,14 +46,63 @@ export class MyplaylistsComponent implements OnInit {
   }
 
   userSelection(){
+    console.log('USER SELCTION CALLED ');
     this.spotifyService.userSelection$.subscribe(
       res => {
         if(res == 'track'){
-          this.getTopTracks();
+          this.getTopTracks('long_term');
         }
         if(res == 'artist'){
-          this.getTopArtists();
+          this.getTopArtists('long_term');
         }
+      }
+    )
+  }
+
+  passParameters(event){
+    console.log(event);
+    if(event.index == 1){
+      this.spotifyService.userSelection$.subscribe(
+        res => {
+          if(res == 'track'){
+            this.getTopTracks('medium_term');
+          }
+          if(res == 'artist'){
+            this.getTopArtists('medium_term');
+          }
+        }
+      )
+    } else if(event.index == 2){
+      this.spotifyService.userSelection$.subscribe(
+        res => {
+          if(res == 'track'){
+            this.getTopTracks('short_term');
+          }
+          if(res == 'artist'){
+            this.getTopArtists('short_term');
+          }
+        }
+      )
+    } else if(event.index == 0){
+      this.spotifyService.userSelection$.subscribe(
+        res => {
+          if(res == 'track'){
+            this.getTopTracks('long_term');
+          }
+          if(res == 'artist'){
+            this.getTopArtists('long_term');
+          }
+        }
+      )
+    }
+  }
+
+  viewTypeChange(){
+    this.appStateService.viewType.subscribe(
+      res => {
+        this.switchValue = res;
+      }, error => {
+        console.log(error);
       }
     )
   }

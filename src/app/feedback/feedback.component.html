@@ -1,0 +1,8 @@
+<div class="center">
+    <img *ngIf="imageSRC" src="{{imageSRC}}" width="250" height="250" class="imgStyle">
+</div>
+<nz-result class="info" nzStatus="{{ feedbackStatus }}" nzTitle="{{displayText}}">
+    <div nz-result-extra>
+        <button nz-button nzType="primary" (click)="close()">CLOSE</button>
+    </div>
+</nz-result>

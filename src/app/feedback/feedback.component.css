@@ -1,0 +1,17 @@
+.center {
+    padding-top: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 40%;
+  }
+
+  .imgStyle{
+    box-shadow: 0 10px 20px rgba(0,0,0,.075);
+    border-radius: 20px;
+  }
+
+  .info{
+    padding-left: 40%;
+  }

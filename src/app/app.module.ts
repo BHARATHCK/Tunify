@@ -38,7 +38,7 @@ import * as AllIcons from '@ant-design/icons-angular/icons';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
-
+import {MatTabsModule} from '@angular/material/tabs';
 import { NZ_I18N, en_US } from 'ng-zorro-antd';
 import { MobileHomeComponent } from './mobileViews/mobile-home/mobile-home.component';
 import { ArtistsComponent } from './mobileViews/artists/artists.component';
@@ -49,6 +49,7 @@ import { CacheRegistrationService } from './services/cacheservice/cache-registra
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { PlaylistHookComponent } from './playlist-hook/playlist-hook.component';
 import { BottomInteractableComponent } from './bottom-interactable/bottom-interactable.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 registerLocaleData(en);
 
@@ -74,7 +75,8 @@ registerLocaleData(en);
     TracksComponent,
     RecentlyPlayedComponent,
     PlaylistHookComponent,
-    BottomInteractableComponent
+    BottomInteractableComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +103,8 @@ registerLocaleData(en);
     NzSelectModule,
     NzStatisticModule,
     NzToolTipModule,
-    NzMenuModule
+    NzMenuModule,
+    MatTabsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons } , {
     provide: HTTP_INTERCEPTORS,

@@ -1,51 +1,158 @@
 <br>
-<div class="viewSwitch">
-    <nz-switch [(ngModel)]="switchValue" nzCheckedChildren="RANKED VIEW"
-        nzUnCheckedChildren="NORMAL VIEW"></nz-switch>
-</div>
+
+<mat-tab-group class="viewSwitch" color="warn" mat-stretch-tabs dynamicHeight (selectedTabChange)="passParameters($event)">
+    <mat-tab label="All time">
+        <br><br><br>
+        <div class="wrapper" *ngIf="topArtistsArray && !switchValue">
+            <div class="recentPalette">
+                <div class="paletteItem" *ngFor="let artistItem of topArtistsArray">
+                    <img style="width:200px; height: 200px;" src="{{ artistItem.images[0].url }}" />
+                    <span> {{ artistItem.name }} </span>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="topArtistsArray && switchValue">
+            <div *ngFor="let artistItem of topArtistsArray; let i = index">
+                <div class="artist__info">
+                    <span class="order__index">{{ i+1 }}</span>
+                    <span class="track__cover"
+                        [style.background-image]="'url(' + artistItem.images[0].url + ')'"></span>
+                    <span class="artist__summary">
+                        <span class="artist__name">{{ artistItem.name }}</span>
+                        <span class="artist__genres">{{ artistItem.genres }}</span>
+                    </span>
+                </div>
+                <br>
+            </div>
+        </div>
+
+        <div *ngIf="topTracksArray && switchValue">
+            <div *ngFor="let trackItem of topTracksArray; let i = index">
+                <div class="artist__info">
+                    <span class="order__index">{{ i+1 }}</span>
+                    <span class="track__cover"
+                        [style.background-image]="'url(' + trackItem.album.images[0].url + ')'"></span>
+                    <span class="artist__summary">
+                        <span class="artist__name">{{ trackItem.name }}</span>
+                        <span class="artist__genres">POPULARITY: {{ trackItem.popularity }}</span>
+                    </span>
+                </div>
+                <br>
+            </div>
+        </div>
+
+        <div class="wrapper" *ngIf="topTracksArray && !switchValue">
+            <div class="recentPalette">
+                <div class="paletteItem" *ngFor="let trackItem of topTracksArray">
+                    <img style="width:200px; height: 200px;" src="{{ trackItem.album.images[0].url }}" />
+                    <span> {{ trackItem.name }} </span>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Last 6 months">
+        <br><br><br>
+        <div class="wrapper" *ngIf="topArtistsArray && !switchValue">
+            <div class="recentPalette">
+                <div class="paletteItem" *ngFor="let artistItem of topArtistsArray">
+                    <img style="width:200px; height: 200px;" src="{{ artistItem.images[0].url }}" />
+                    <span> {{ artistItem.name }} </span>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="topArtistsArray && switchValue">
+            <div *ngFor="let artistItem of topArtistsArray; let i = index">
+                <div class="artist__info">
+                    <span class="order__index">{{ i+1 }}</span>
+                    <span class="track__cover"
+                        [style.background-image]="'url(' + artistItem.images[0].url + ')'"></span>
+                    <span class="artist__summary">
+                        <span class="artist__name">{{ artistItem.name }}</span>
+                        <span class="artist__genres">{{ artistItem.genres }}</span>
+                    </span>
+                </div>
+                <br>
+            </div>
+        </div>
+
+        <div *ngIf="topTracksArray && switchValue">
+            <div *ngFor="let trackItem of topTracksArray; let i = index">
+                <div class="artist__info">
+                    <span class="order__index">{{ i+1 }}</span>
+                    <span class="track__cover"
+                        [style.background-image]="'url(' + trackItem.album.images[0].url + ')'"></span>
+                    <span class="artist__summary">
+                        <span class="artist__name">{{ trackItem.name }}</span>
+                        <span class="artist__genres">POPULARITY: {{ trackItem.popularity }}</span>
+                    </span>
+                </div>
+                <br>
+            </div>
+        </div>
+
+        <div class="wrapper" *ngIf="topTracksArray && !switchValue">
+            <div class="recentPalette">
+                <div class="paletteItem" *ngFor="let trackItem of topTracksArray">
+                    <img style="width:200px; height: 200px;" src="{{ trackItem.album.images[0].url }}" />
+                    <span> {{ trackItem.name }} </span>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Last month">
+        <br><br><br>
+        <div class="wrapper" *ngIf="topArtistsArray && !switchValue">
+            <div class="recentPalette">
+                <div class="paletteItem" *ngFor="let artistItem of topArtistsArray">
+                    <img style="width:200px; height: 200px;" src="{{ artistItem.images[0].url }}" />
+                    <span> {{ artistItem.name }} </span>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="topArtistsArray && switchValue">
+            <div *ngFor="let artistItem of topArtistsArray; let i = index">
+                <div class="artist__info">
+                    <span class="order__index">{{ i+1 }}</span>
+                    <span class="track__cover"
+                        [style.background-image]="'url(' + artistItem.images[0].url + ')'"></span>
+                    <span class="artist__summary">
+                        <span class="artist__name">{{ artistItem.name }}</span>
+                        <span class="artist__genres">{{ artistItem.genres }}</span>
+                    </span>
+                </div>
+                <br>
+            </div>
+        </div>
+
+        <div *ngIf="topTracksArray && switchValue">
+            <div *ngFor="let trackItem of topTracksArray; let i = index">
+                <div class="artist__info">
+                    <span class="order__index">{{ i+1 }}</span>
+                    <span class="track__cover"
+                        [style.background-image]="'url(' + trackItem.album.images[0].url + ')'"></span>
+                    <span class="artist__summary">
+                        <span class="artist__name">{{ trackItem.name }}</span>
+                        <span class="artist__genres">POPULARITY: {{ trackItem.popularity }}</span>
+                    </span>
+                </div>
+                <br>
+            </div>
+        </div>
+
+        <div class="wrapper" *ngIf="topTracksArray && !switchValue">
+            <div class="recentPalette">
+                <div class="paletteItem" *ngFor="let trackItem of topTracksArray">
+                    <img style="width:200px; height: 200px;" src="{{ trackItem.album.images[0].url }}" />
+                    <span> {{ trackItem.name }} </span>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+
+</mat-tab-group>
 <br>
-<div class="wrapper" *ngIf="topArtistsArray && !switchValue">
-    <div class="recentPalette">
-        <div class="paletteItem" *ngFor="let artistItem of topArtistsArray">
-            <img style="width:200px; height: 200px;" src="{{ artistItem.images[0].url }}" />
-            <span> {{ artistItem.name }} </span>
-        </div>
-    </div>
-</div>
-
-<div *ngIf="topArtistsArray && switchValue">
-    <div *ngFor="let artistItem of topArtistsArray; let i = index">
-        <div class="artist__info">
-            <span class="order__index">{{ i+1 }}</span>
-            <span class="track__cover" [style.background-image]="'url(' + artistItem.images[0].url + ')'"></span>
-            <span class="artist__summary">
-                <span class="artist__name">{{ artistItem.name }}</span>
-                <span class="artist__genres">{{ artistItem.genres }}</span>
-            </span>
-        </div>
-        <br>
-    </div>
-</div>
-
-<div *ngIf="topTracksArray && switchValue">
-    <div *ngFor="let trackItem of topTracksArray; let i = index">
-        <div class="artist__info">
-            <span class="order__index">{{ i+1 }}</span>
-            <span class="track__cover" [style.background-image]="'url(' + trackItem.album.images[0].url + ')'"></span>
-            <span class="artist__summary">
-                <span class="artist__name">{{ trackItem.name }}</span>
-                <span class="artist__genres">POPULARITY: {{ trackItem.popularity }}</span>
-            </span>
-        </div>
-        <br>
-    </div>
-</div>
-
-<div class="wrapper" *ngIf="topTracksArray && !switchValue">
-    <div class="recentPalette">
-        <div class="paletteItem" *ngFor="let trackItem of topTracksArray">
-            <img style="width:200px; height: 200px;" src="{{ trackItem.album.images[0].url }}" />
-            <span> {{ trackItem.name }} </span>
-        </div>
-    </div>
-</div>

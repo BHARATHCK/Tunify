@@ -25,6 +25,7 @@ span{
 }
 
 .viewSwitch{
+    display: inline-block;
     padding: 15px;
 }
 
@@ -44,6 +45,10 @@ span{
     -webkit-transition: opacity .1s linear;
     -o-transition: opacity .1s linear;
     transition: opacity .1s linear;
+}
+
+.tabPalette{
+    padding-left: 10px;
 }
 
 .artist__info {
